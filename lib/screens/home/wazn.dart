@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:wazn/back_end/maino.dart';
+import 'package:wazn/back_end/search.dart';
 import 'package:wazn/screens/home/resu.dart';
 
 class waznpage extends StatefulWidget {
+
   const waznpage({Key? key}) : super(key: key);
   @override
   State<waznpage> createState() => _waznpageState();
@@ -11,7 +13,7 @@ class waznpage extends StatefulWidget {
 class _waznpageState extends State<waznpage> {
   String first = "";
   String second = "";
-
+  String a ="" , b="" ;
   @override
   Widget build(BuildContext context) {
     void _showresult(String a , String b) {
@@ -57,7 +59,10 @@ class _waznpageState extends State<waznpage> {
                 ),
                 TextField(
                   onChanged: (val){
-                    setState(() => first = val);
+                    setState(() {
+                      first = val;
+                      a = search().searchn(val);
+                    } );
                   },
                   textAlign: TextAlign.right,
                   decoration: InputDecoration(
@@ -78,7 +83,10 @@ class _waznpageState extends State<waznpage> {
                 ),
                 TextField(
                   onChanged: (val){
-                    setState(() => second = val);
+                    setState(()  {
+                      second = val;
+                      b = search().searchn(val);
+                    });
                   },
                   textAlign: TextAlign.right,
                   decoration: InputDecoration(
@@ -110,6 +118,23 @@ class _waznpageState extends State<waznpage> {
                 ),
                 SizedBox(
                   height: 30,
+                ),
+
+                Text(
+                  '${a}',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontSize: 20,
+                    fontFamily: 'cairo',
+                  ),
+                ),
+                Text(
+                  '${b}',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontSize: 20,
+                    fontFamily: 'cairo',
+                  ),
                 ),
                 Text(
                   'تعليمات مهمّة',
