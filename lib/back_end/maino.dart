@@ -47,7 +47,6 @@ class maino{
       allbahrs.wafer_m(res)
 
     ];
-       print("objects");
     List<String> bahrso = [
       "بحر البسيط",
       "مجزوء البسيط",

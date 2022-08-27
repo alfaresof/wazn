@@ -1,7 +1,5 @@
 import 'package:wazn/back_end/bahrs/findbahr.dart';
-import 'package:wazn/back_end/bahrs/toremove/khafef.dart';
 
-import 'package:wazn/back_end/bahrs/toremove/monsareh.dart';
 
 
 class allbahrs{
