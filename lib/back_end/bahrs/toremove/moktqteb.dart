@@ -1,8 +1,7 @@
 
-import 'package:wazn/back_end/taffeelat/faelon.dart';
-import 'package:wazn/back_end/taffeelat/mafolato.dart';
-import 'package:wazn/back_end/taffeelat/mofaalaton.dart';
-import 'package:wazn/back_end/taffeelat/mostafelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/faelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/mafolato.dart';
+import 'package:wazn/back_end/taffeelat/toremove/mofaalaton.dart';
 
 class moktateb{
 
@@ -10,7 +9,6 @@ class moktateb{
 
 
    mafolato fi = new mafolato();
-    mostafelon mos = new mostafelon();
 /*
 لكافة التفعيلات في كل شطر، ثلاثة احتمالات:
    صحيحة: 1010110

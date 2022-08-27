@@ -1,13 +1,12 @@
-import 'package:wazn/back_end/taffeelat/faelon.dart';
-import 'package:wazn/back_end/taffeelat/faoolon.dart';
-import 'package:wazn/back_end/taffeelat/mostafelon.dart';
+import 'package:wazn/back_end/bahrs/findbahr.dart';
+import 'package:wazn/back_end/taffeelat/MaTaffelat.dart';
+import 'package:wazn/back_end/taffeelat/toremove/faelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/mostafelon.dart';
 
 class basset{
 
   bool bassets(String firstsh , String secondsh){
 
-    mostafelon fi = new mostafelon();
-    faelon fa = new faelon();
 
 /*
 لكافة التفعيلات في كل شطر، ثلاثة احتمالات:
@@ -16,8 +15,23 @@ class basset{
     مطوية: 101110
     *****************
 */
-    List<int> f = [0,0,0,0,0,0,0,0];
 
+    List<String> shatr = [firstsh,secondsh];
+    List<List<List<bool>>> basset_bool = [
+      [[true, true, true, false, false],//first
+        [true, true, false],//sec
+        [true, true, true, false, false],//thir
+      [false, true, true]],//fourth
+      [[true, true, true, false, false],//first
+        [true, true, false],//sec
+        [true, true, true, false, false],
+      [false,true,true]],
+    ];
+    List<int> basset_taf = [6,1,6,1];
+    List<List<int>> basset_result = [[0,0,0,0],[0,0,0,0]];
+    return findit.findbahrso(basset_bool, basset_taf, basset_result, shatr);
+    /*
+    List<int> f = [0,0,0,0,0,0,0,0];
     f[0] = mostafelon().mostafelons(true, true, true, false, false, firstsh, 0);
     f[1] = faelon().faelons(true, true, false, firstsh, f[0]);
     f[2] = mostafelon().mostafelons(true, true, true, false, false, firstsh, f[0]+f[1]);
@@ -42,12 +56,11 @@ class basset{
 
 
     return false;
+
+*/
   }
 
   bool bassetm(String firstsh , String secondsh){
-
-    mostafelon fi = new mostafelon();
-    faelon fa = new faelon();
 
 /*
 لكافة التفعيلات في كل شطر، ثلاثة احتمالات:
@@ -56,7 +69,40 @@ class basset{
     مطوية: 101110
     *****************
 */
-    List<int> f = [0,0,0,0,0,0];
+  List<String> shatr = [firstsh,secondsh];
+    List<List<List<bool>>> a = [
+      [[true, true, true, false, false],
+      [true, false, false],
+      [true, false, false, false, false]],
+     [[true, true, true, false, false],
+      [true, false, false],
+      [true, false, false, false, false]],
+    ];
+    List<int> taf = [6,1,2];
+    List<List<int>> f = [[0,0,0],[0,0,0]];
+    print(findit.findbahrso(a, taf, f, shatr));
+
+    return findit.findbahrso(a, taf, f, shatr);
+    /*
+    int starts=0;
+    for(int i=0;i<2; i++){
+      starts =0;
+      for(int j=0; j<taf.length; j++) {
+        print('starts');
+        print(starts);
+        print("object");
+        print(f[i][j]);
+
+        f[i][j] = MaTaffelt().find(a[i][j], shatr[i], starts, taf[j]);
+        starts += f[i][j];
+        if(f[i][j] == -1){
+          return false;
+        }
+        print("hoho");
+        print(f[i][j]);
+      }
+    }
+    return true;
 
     f[0] = mostafelon().mostafelons(true, true, true, false, false, firstsh, 0);
     f[1] = faelon().faelons(true, false, false, firstsh, f[0]);
@@ -81,6 +127,8 @@ class basset{
 
 
     return false;
+    */
+
   }
 
 

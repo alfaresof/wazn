@@ -1,14 +1,14 @@
 
-import 'package:wazn/back_end/taffeelat/faoolon.dart';
 
-import '../taffeelat/mafaeelon.dart';
+
+
+
+import '../../taffeelat/toremove/faoolon.dart';
+import '../../taffeelat/toremove/mafaeelon.dart';
 
 class taweel{
 
   bool taweels(String firstsh , String secondsh){
-
-    mafaeelon fi = new mafaeelon();
-    faoolon fa = new faoolon();
 
 
     List<int> f = [0,0,0,0,0,0,0,0];

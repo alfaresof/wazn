@@ -1,4 +1,5 @@
-import 'package:wazn/back_end/taffeelat/faoolon.dart';
+
+import '../../taffeelat/toremove/faoolon.dart';
 
 class motokareb{
 

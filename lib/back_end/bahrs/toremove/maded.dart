@@ -1,6 +1,6 @@
-import 'package:wazn/back_end/taffeelat/faelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/faelon.dart';
 
-import '../taffeelat/faeelaton.dart';
+import '../../taffeelat/toremove/faeelaton.dart';
 
 class maded {
 

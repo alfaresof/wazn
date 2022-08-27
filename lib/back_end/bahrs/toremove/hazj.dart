@@ -1,4 +1,5 @@
-import 'package:wazn/back_end/taffeelat/mafaeelon.dart';
+
+import '../../taffeelat/toremove/mafaeelon.dart';
 
 class hazj{
 

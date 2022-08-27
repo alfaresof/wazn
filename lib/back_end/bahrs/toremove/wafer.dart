@@ -1,5 +1,6 @@
-import 'package:wazn/back_end/taffeelat/faoolon.dart';
-import 'package:wazn/back_end/taffeelat/mofaalaton.dart';
+import 'package:wazn/back_end/taffeelat/toremove/mofaalaton.dart';
+
+import '../../taffeelat/toremove/faoolon.dart';
 
 class wafer{
 

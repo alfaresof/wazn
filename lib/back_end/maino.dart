@@ -1,21 +1,17 @@
-import 'package:wazn/back_end/bahrs/baseet.dart';
-import 'package:wazn/back_end/bahrs/hazj.dart';
-import 'package:wazn/back_end/bahrs/kamel.dart';
-import 'package:wazn/back_end/bahrs/khafef.dart';
-import 'package:wazn/back_end/bahrs/maded.dart';
-import 'package:wazn/back_end/bahrs/modareh.dart';
-import 'package:wazn/back_end/bahrs/mohdath.dart';
-import 'package:wazn/back_end/bahrs/mojtath.dart';
-import 'package:wazn/back_end/bahrs/moktqteb.dart';
-import 'package:wazn/back_end/bahrs/monsareh.dart';
-import 'package:wazn/back_end/bahrs/motokareb.dart';
-import 'package:wazn/back_end/bahrs/rajaz.dart';
-import 'package:wazn/back_end/bahrs/ramal.dart';
-import 'package:wazn/back_end/bahrs/sareeh.dart';
-import 'package:wazn/back_end/bahrs/taweel.dart';
-import 'package:wazn/back_end/bahrs/wafer.dart';
-import 'package:wazn/back_end/search.dart';
+import 'package:wazn/back_end/bahrs/toremove/baseet.dart';
+import 'package:wazn/back_end/bahrs/toremove/hazj.dart';
+import 'package:wazn/back_end/bahrs/toremove/kamel.dart';
+import 'package:wazn/back_end/bahrs/toremove/khafef.dart';
 
+import 'package:wazn/back_end/bahrs/toremove/mohdath.dart';
+import 'package:wazn/back_end/bahrs/toremove/mojtath.dart';
+
+import 'package:wazn/back_end/bahrs/toremove/monsareh.dart';
+
+import 'package:wazn/back_end/bahrs/toremove/rajaz.dart';
+
+import 'package:wazn/back_end/search.dart';
+import 'package:wazn/back_end/bahrs/all_bahrs.dart';
 class maino{
 
 
@@ -23,30 +19,32 @@ class maino{
        print("object");
     String first = search().searchn(A);
     String second = search().searchn(B);
+    List<String> res = [first,second];
     print(first);
     print(second);
     List<bool> f = [
-      basset().bassets(first, second),
-      basset().bassetm(first, second),
-      hazj().hazjs(first, second),
-      kamel().kamels(first, second),
-      kamel().kamelm(first, second),
-      khafef().khafefs(first, second),
-      khafef().khafefm(first, second),
-      maded().madeds(first, second),
-      modareh().modarehs(first, second),
-      mohdath().mohdaths(first, second),
-      mojtath().mojtaths(first, second),
-      moktateb().moktatebs(first, second),
-      monsareh().monsarehs(first, second),
-      motokareb().motokarebs(first, second),
-      rajaz().rajazs(first, second),
-      ramal().ramals(first, second),
-      ramal().ramalm(first, second),
-      sareeh().sareehs(first, second),
-      taweel().taweels(first, second),
-      wafer().wafers(first, second),
-      wafer().waferm(first, second),
+
+      allbahrs.basset_n(res),
+      allbahrs.basset_m(res),
+      allbahrs.hazj_n(res),
+      allbahrs.kamel_n(res),
+      allbahrs.kamel_m(res),
+      allbahrs.khafef_n(res),
+      allbahrs.khafef_m(res),
+      allbahrs.maded_n(res),
+      allbahrs.modareh_n(res),
+      allbahrs.mohdath_n(res),
+      allbahrs.mojtath_n(res),
+      allbahrs.moktateb_n(res),
+      allbahrs.monsareh_n(res),
+      allbahrs.motokareb_n(res),
+      allbahrs.rajaz_n(res),
+      allbahrs.ramal_n(res),
+      allbahrs.ramal_m(res),
+      allbahrs.sareeh_n(res),
+      allbahrs.tawwel_n(res),
+      allbahrs.wafer_n(res),
+      allbahrs.wafer_m(res)
 
     ];
        print("objects");

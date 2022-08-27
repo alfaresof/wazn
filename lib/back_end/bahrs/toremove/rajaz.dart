@@ -1,4 +1,4 @@
-import 'package:wazn/back_end/taffeelat/mostafelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/mostafelon.dart';
 
 class rajaz{
 

@@ -1,11 +1,9 @@
 import 'dart:ffi';
 
-import 'package:wazn/back_end/bahrs/baseet.dart';
-import 'package:wazn/back_end/bahrs/hazj.dart';
-import 'package:wazn/back_end/bahrs/mohdath.dart';
-import 'package:wazn/back_end/bahrs/motokareb.dart';
-import 'package:wazn/back_end/bahrs/rajaz.dart';
-import 'package:wazn/back_end/bahrs/taweel.dart';
+import 'package:wazn/back_end/bahrs/toremove/baseet.dart';
+import 'package:wazn/back_end/bahrs/toremove/hazj.dart';
+import 'package:wazn/back_end/bahrs/toremove/mohdath.dart';
+import 'package:wazn/back_end/taffeelat/MaTaffelat.dart';
 class search{
    String searchn(String bb){
 

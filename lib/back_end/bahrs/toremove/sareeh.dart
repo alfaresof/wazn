@@ -1,5 +1,5 @@
-import 'package:wazn/back_end/taffeelat/faelon.dart';
-import 'package:wazn/back_end/taffeelat/mostafelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/faelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/mostafelon.dart';
 
 class sareeh{
 

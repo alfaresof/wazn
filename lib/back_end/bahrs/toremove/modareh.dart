@@ -1,5 +1,6 @@
-import 'package:wazn/back_end/taffeelat/faeelaton.dart';
-import 'package:wazn/back_end/taffeelat/mafaeelon.dart';
+import 'package:wazn/back_end/taffeelat/toremove/faeelaton.dart';
+
+import '../../taffeelat/toremove/mafaeelon.dart';
 
 class modareh {
 
