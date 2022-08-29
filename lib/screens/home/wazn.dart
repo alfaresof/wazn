@@ -121,7 +121,7 @@ class _waznpageState extends State<waznpage> {
                 ),
 
                 Text(
-                  '${a}',
+                  '${a.replaceAll('1', '/')}',
                   style: TextStyle(
                     color: Colors.amber,
                     fontSize: 20,
@@ -129,7 +129,7 @@ class _waznpageState extends State<waznpage> {
                   ),
                 ),
                 Text(
-                  '${b}',
+                  '${b.replaceAll('1', '/')}',
                   style: TextStyle(
                     color: Colors.amber,
                     fontSize: 20,

@@ -9,88 +9,127 @@ class search{
 
        String shatr = bb;
        shatr = methods.replacea(shatr);
-       shatr = shatr.replaceAll(' ', '');
+       //shatr = shatr.replaceAll(' ', '');
         print(shatr);
        
        String results = "" ;
 
        for (int i = 0; i < shatr.length; i++) {
          int a = shatr.codeUnitAt(i);
+         print(i);
+if(String.fromCharCode(a) != ' ') {
+  //we will divde it to two , with harakah , without
+  if (i + 2 < shatr.length) {
+    int b = shatr.codeUnitAt(i + 1);
+    int c = shatr.codeUnitAt(i + 2);
+    print(String.fromCharCode(a));
+    print(String.fromCharCode(b));
 
-         //we will divde it to two , with harakah , without
-         if(i+2 < shatr.length){
+    if (methods._IsHarf(a) && methods._IsHarf(b)) {
+      if(String.fromCharCode(a)=='آ'){
+        results += '10';
+      }else  if (methods._IsItMad(b)) {
+        results += '1';
+      } else if (methods._IsItMad(a) && methods._IsItAL(a, b) == false &&
+          methods._IsHarf(b) == true ) {
 
-           int b = shatr.codeUnitAt(i+1);
-           int c = shatr.codeUnitAt(i+2);
-           print(String.fromCharCode(a));
-           print(String.fromCharCode(b));
+        if(String.fromCharCode(b) != ' '){
+        print('mad');
+        results += '0';
+        }else if(String.fromCharCode(b)==' '&& String.fromCharCode(c)== 'ا'&&i+3 < shatr.length){
+          if(String.fromCharCode(shatr.codeUnitAt(i+3))=='ل'){
+            i++;
+            
+          }
+        }else if(i +3 < shatr.length && methods._IsItAL(c, shatr.codeUnitAt(i+3))==false){
+          results += '0';
+        }else{
+          if(methods.typeof(i-1)=='01' || methods.typeof(i-2)=='01'){
 
-           if(methods._IsHarf(a)&&methods._IsHarf(b)){
+          }else{
+          results += '0';
+        }}
+      } else if (i + 1 == shatr.length - 1 && methods._IsItAL(a, b) == true &&
+          methods._IsHarf(b) == true) {
+        print('mad again');
+        results += '0';
+      } else if (methods._IsItAL(a, b) && methods._IsHarf(c) == true) {
+        print('al');
+        if (methods._IsItSunny(a, b, shatr.codeUnitAt(i + 3))) {
+          results += "01";
+          if (methods.typeof(shatr.codeUnitAt(i + 4))=='1') {
+            i++;
+          }
+          i += 3;
+        } else {
+          print(methods._IsItMad(shatr.codeUnitAt(i - 1)));
 
-             if(methods._IsItMad(a)&& methods._IsItAL(a, b)==false){
-               print('mad');
-               results += '0';
+          if (methods._IsItMad(shatr.codeUnitAt(i - 1)) == false||methods._IsItMad(shatr.codeUnitAt(i - 2)) == false) {
+            results += '0';
+          }
+          i += 1;
+        }
+      } else {
+        if (methods._IsItMad(b) && methods.typeof(c) == '-1') {
+          print('before mad');
+          results += '1';
+        } else {
+          print('sokon');
+          results += '0';
+        }
+      }
+    } else {
+      results += methods.typeof(b);
+      print(methods.typeof(b) == '10' && String.fromCharCode(c) == 'ا');
+      if (methods.typeof(b) == '10' && String.fromCharCode(c) == 'ا') {
+        i += 1;
+      }
+      if (methods.typeof(b) == '1' && String.fromCharCode(a) == 'ه'
+          ) {
+        if(i!=0 && i != 1){
+        if((methods.typeof(shatr.codeUnitAt(i - 1)) == '1'||methods.typeof(shatr.codeUnitAt(i - 1)) == '1')&& String.fromCharCode(c)==' ')
+        print("i am heeeeeeeeeeeeeeeeeeeeeere");
+        results += '0';}
+      }
+      if (methods.typeof(b) == '01' && methods.typeof(c) == '10') {
+        results += '0';
+        i += 1;
+      }
+      if (methods.typeof(b) == '01') {
+        i += 2;
+        if (methods._IsItMad(c)) {
+          i += 1;
+        }
+      }
 
-             }else if(i+1 == shatr.length -1&&methods._IsItAL(a, b)==true){
-               print('mad again');
-              results += '0';
-             }else if(methods._IsItAL(a, b)) {
-               print('al');
-               if (methods._IsItSunny(a, b, shatr.codeUnitAt(i + 3))) {
-                 results += "01";
-                 i += 3;
-                 if (methods._IsItHarakah(shatr.codeUnitAt(i + 4))) {
-                   i++;
-                 }
-               } else {
-                 print(methods._IsItMad(shatr.codeUnitAt(i-1)));
+      print(methods.typeof(b));
 
-                 if(methods._IsItMad(shatr.codeUnitAt(i-1))==false){
-                 results += '0';
+      print(methods.typeof(b) == '01' && methods.typeof(c) == '1');
 
-                 }
-                 i += 1;
-               }
+      if (i + 1 != shatr.length - 1) {
+        i += 1;
+      }
+    }
+  } else {
+    if (String.fromCharCode(a) == 'ا' &&(methods.typeof(shatr.codeUnitAt(i - 1)) == '10'||methods.typeof(shatr.codeUnitAt(i - 2)) == '10')
+        ) {
 
-             }else{
-            if (methods._IsItMad(b)&&methods.typeof(c)=='-1'){
-              print('before mad');
-              results += '1';
-            }else {
-              print('sokon');
-              results += '0';
-            }}
+    } else if (methods._IsItMad(a) && i == shatr.length - 1 &&(methods.typeof(shatr.codeUnitAt(i - 1)) != '10'||methods.typeof(shatr.codeUnitAt(i - 2)) != '10')
+        ) {
+      results += '0';
+    } else if (methods.typeof(a) == 1 && i == shatr.length - 1) {
+      results += '0';
+    } else if (methods._IsHarf(a) && i == shatr.length - 1) {
+      results += '0';
+    } else {
+      if (methods.typeof(a) != '-1') {
+        results += methods.typeof(a);
+      }
+    }
+  }
 
-           }else{
-             results += methods.typeof(b);
-             print(methods.typeof(b));
-             if(methods.typeof(b)=='01'&&methods.typeof(c)=='1'){
-               print("+++++");
-               i +=1;
-               print("+++++");
-             }
-             if (i+1 != shatr.length-1){
-             i += 1;}
-           }
-
-         }else{
-           if(methods._IsItMad(a)){
-             results += '0';
-           }else if(methods.typeof(a)==1){
-             results += '0';
-           }else{
-             if( methods.typeof(a)!= '-1'){
-             results += methods.typeof(a);
-           }
-
-           }
-           if(methods._IsHarf(a)&& i == shatr.length -1){
-             results += '0';
-           }
-         }
-
-        print(results);
-
+  print(results);
+}
         /*
          if (methods._IsItHarakah(a)) {
            results +=  '1';
@@ -206,6 +245,10 @@ class methods
         return "0";
       case 'ّ':
         return "01";
+      case 'أ':
+      case 'ؤ':
+      case 'ئ':
+        return '1m';
 
     }
   return "-1";

@@ -7,7 +7,9 @@ class allbahrs{
 //******************** بداية الطويل *******************
 
   static bool tawwel_n (List<String> shatr ){//not finish
-
+    if (shatr[1].length > 24){
+      return false;
+    }
     List<List<List<bool>>> basset_bool = [
       [
         [true, true, false, false, false],//first
@@ -33,7 +35,9 @@ class allbahrs{
 //******************** بداية البسيط *******************
 
   static bool basset_n (List<String> shatr ){
-
+    if (shatr[1].length > 24){
+      return false;
+    }
   List<List<List<bool>>> basset_bool = [
   [[true, true, true, false, false],//first
   [true, true, false],//sec
@@ -52,6 +56,9 @@ class allbahrs{
 
 
   static bool basset_m ( List<String> shatr){
+    if (shatr[1].length > 17){
+      return false;
+    }
     List<List<List<bool>>> a = [
       [[true, true, true, false, false],
         [true, false, false],
@@ -71,7 +78,9 @@ class allbahrs{
 
 //******************** بداية الكامل *******************
   static bool kamel_n (List<String> shatr ){
-
+    if (shatr[1].length > 21){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false, false, false, false, false, false],//first
@@ -91,7 +100,9 @@ class allbahrs{
   }//بحر الكامل العادي
 
   static bool kamel_m (List<String> shatr ){
-
+    if (shatr[1].length > 14){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false, false, false, false, false, false],//first
@@ -112,7 +123,9 @@ class allbahrs{
 
   //******************** بداية الوافر  *******************
   static bool wafer_n (List<String> shatr ){
-
+    if (shatr[1].length > 19){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false],//first
@@ -132,7 +145,9 @@ class allbahrs{
   }//بحر الوافر العادي
 
   static bool wafer_m (List<String> shatr ){
-
+    if (shatr[1].length > 14){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false],//first
@@ -154,7 +169,9 @@ class allbahrs{
 
   //******************** بداية الخفيف  *******************
   static bool khafef_n (List<String> shatr ){
-
+    if (shatr[1].length > 21){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false, false, false, false, false, false],//first
@@ -174,7 +191,9 @@ class allbahrs{
   }//بحر الخفيف العادي
 
   static bool khafef_m (List<String> shatr ){
-
+    if (shatr[1].length > 14){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false, false, false, false, false, false],//first
@@ -197,7 +216,9 @@ class allbahrs{
 
   //******************** بداية الرمل  *******************
   static bool ramal_n (List<String> shatr ){
-
+    if (shatr[1].length > 21){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false, false, false, false, false, false],//first
@@ -217,7 +238,9 @@ class allbahrs{
   }//بحر الخفيف العادي
 
   static bool ramal_m (List<String> shatr ){
-
+    if (shatr[1].length > 14){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false, false, false, false, false, false],//first
@@ -245,7 +268,9 @@ class allbahrs{
 
   //******************** بداية المتقارب  *******************
   static bool motokareb_n (List<String> shatr ){
-
+    if (shatr[1].length > 20){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false],//first
@@ -272,7 +297,9 @@ class allbahrs{
 
   //******************** بداية المنسرح  *******************
   static bool monsareh_n (List<String> shatr ){
-
+    if (shatr[1].length > 21){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, true, true, false],//first
@@ -296,6 +323,9 @@ class allbahrs{
 
   //******************** بداية السريع  *******************
   static bool sareeh_n (List<String> shatr ){
+    if (shatr[1].length > 19){
+      return false;
+    }
 
     List<List<List<bool>>> _bool = [
       [
@@ -321,7 +351,9 @@ class allbahrs{
 
   //******************** بداية المقتضب  *******************
   static bool moktateb_n (List<String> shatr ){
-
+    if (shatr[1].length > 12){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, false, false],//first
@@ -342,7 +374,9 @@ class allbahrs{
 
 //******************** بداية المجتث  *******************
   static bool mojtath_n (List<String> shatr ){
-
+    if (shatr[1].length > 14){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, true, false, false],//first
@@ -363,7 +397,9 @@ class allbahrs{
 
 //******************** بداية المحدث  *******************
   static bool mohdath_n (List<String> shatr ){
-
+    if (shatr[1].length > 20){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, true],//first
@@ -389,7 +425,9 @@ class allbahrs{
 
 //******************** بداية المضارع  *******************
   static bool modareh_n (List<String> shatr ){
-
+    if (shatr[1].length > 13){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [false, false, false, true, false],//first
@@ -411,7 +449,9 @@ class allbahrs{
 
   //******************** بداية الرجز  *******************
   static bool rajaz_n (List<String> shatr ){
-
+    if (shatr[1].length > 21){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, true, true, false],//first
@@ -436,7 +476,9 @@ class allbahrs{
 
   //******************** بداية المديد  *******************
   static bool maded_n (List<String> shatr ){
-
+    if (shatr[1].length > 19){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false, false, false, false, false, false],//first
@@ -460,7 +502,9 @@ class allbahrs{
   //******************** بداية الهزج *******************
 
   static bool hazj_n (List<String> shatr ){
-
+    if (shatr[1].length > 14){
+      return false;
+    }
     List<List<List<bool>>> _bool = [
       [[true, false, false, true, false],//first
         [true, false, false, true, false]//sec
