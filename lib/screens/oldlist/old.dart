@@ -12,8 +12,8 @@ class old extends StatelessWidget {
     //final olds = Provider.of<List<olde>>(context);
     List olds = [
       olde(
-          first: 'وأضحى يسحّ الماء عن كل فيقة ',
-          second: 'يكبّ على الأذقان دوح الكنهبلِ',
+          first: 'إِذا اعتادَ الفَتى خَوضَ المَنايا',
+          second: 'فَأَهْوَنُ ما يَمُرُّ بِهِ الوُحولُ',
           resu: 'بحر الوافر'),
       olde(
           first: 'أفاطم مهلاً بعض هذا التدلل',

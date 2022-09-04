@@ -18,6 +18,8 @@ class _waznpageState extends State<waznpage> {
   Widget build(BuildContext context) {
     void _showresult(String a , String b) {
 
+
+
       showModalBottomSheet(
           context: context,
           builder: (context) {
@@ -121,7 +123,7 @@ class _waznpageState extends State<waznpage> {
                 ),
 
                 Text(
-                  '${a.replaceAll('1', '/')}',
+                  '${a.replaceAll('1', '/').split('').reversed.join()}',
                   style: TextStyle(
                     color: Colors.amber,
                     fontSize: 20,
@@ -129,7 +131,7 @@ class _waznpageState extends State<waznpage> {
                   ),
                 ),
                 Text(
-                  '${b.replaceAll('1', '/')}',
+                  '${b.replaceAll('1', '/').split('').reversed.join()}',
                   style: TextStyle(
                     color: Colors.amber,
                     fontSize: 20,

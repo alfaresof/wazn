@@ -6,11 +6,11 @@ class allbahrs{
 
 //******************** بداية الطويل *******************
 
-  static bool tawwel_n (List<String> shatr ){//not finish
+  static List tawwel_n (List<String> shatr ){//not finish
     if (shatr[1].length > 24){
-      return false;
+      return [-1];
     }
-    List<List<List<bool>>> basset_bool = [
+    List<List<List<bool>>> _bool = [
       [
         [true, true, false, false, false],//first
         [true, false, false, false, true],//sec
@@ -24,42 +24,52 @@ class allbahrs{
         [true, false, false, false, true]
       ],
     ];
-    List<int> basset_taf = [2,3,2,3];
-    List<List<int>> basset_result = [[0,0,0,0],[0,0,0,0]];
-    return findit.findbahrso(basset_bool, basset_taf, basset_result, shatr);
+    List<int> _taf = [2,3,2,3];
+    List<List<List<int>>> _result = [[[0],[0],[0],[0]],[[0],[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }// بحر الطويل
 //******************** نهاية الطويل *******************
 
 
 //******************** بداية البسيط *******************
 
-  static bool basset_n (List<String> shatr ){
+  static List basset_n (List<String> shatr ){
     if (shatr[1].length > 24){
-      return false;
+      return [-1];
     }
-  List<List<List<bool>>> basset_bool = [
-  [[true, true, true, false, false],//first
-  [true, true, false],//sec
-  [true, true, true, false, false],//thir
-  [false, true, true]],//fourth
-  [[true, true, true, false, false],//first
-  [true, true, false],//sec
-  [true, true, true, false, false],
-  [false,true,true]],
-  ];
-  List<int> basset_taf = [6,1,6,1];
-  List<List<int>> basset_result = [[0,0,0,0],[0,0,0,0]];
-  return findit.findbahrso(basset_bool, basset_taf, basset_result, shatr);
+    List<List<List<bool>>> _bool = [
+      [[true, true, true, false, false],//first
+        [true, true, false],//sec
+        [true, true, true, false, false],//thir
+        [false, true, true]],//fourth
+      [[true, true, true, false, false],//first
+        [true, true, false],//sec
+        [true, true, true, false, false],
+        [false,true,true]],
+    ];
+    List<int> _taf = [6,1,6,1];
+    List<List<List<int>>> _result = [[[0],[0],[0],[0]],[[0],[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر البسيط الطبيعي
 
 
-  static bool basset_m ( List<String> shatr){
+  static List basset_m ( List<String> shatr){
     if (shatr[1].length > 17){
-      return false;
+      return [-1];
     }
-    List<List<List<bool>>> a = [
+    List<List<List<bool>>> _bool = [
       [[true, true, true, false, false],
         [true, false, false],
         [true, false, false, false, false]],
@@ -67,19 +77,22 @@ class allbahrs{
         [true, false, false],
         [true, false, false, false, false]],
     ];
-    List<int> taf = [6,1,2];
-    List<List<int>> f = [[0,0,0],[0,0,0]];
-    print(findit.findbahrso(a, taf, f, shatr));
+    List<int> _taf = [6,1,2];
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
-    return findit.findbahrso(a, taf, f, shatr);
-
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر مجزوء البسيط
 //******************** نهاية البسيط  *******************
 
 //******************** بداية الكامل *******************
-  static bool kamel_n (List<String> shatr ){
+  static List kamel_n (List<String> shatr ){
     if (shatr[1].length > 21){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -94,14 +107,19 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [7,7,7];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الكامل العادي
 
-  static bool kamel_m (List<String> shatr ){
+  static List kamel_m (List<String> shatr ){
     if (shatr[1].length > 14){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -115,16 +133,21 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [7,7];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0]],[[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الكامل المجزوء
 //******************** نهاية الكامل *******************
 
   //******************** بداية الوافر  *******************
-  static bool wafer_n (List<String> shatr ){
+  static List wafer_n (List<String> shatr ){
     if (shatr[1].length > 19){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -139,14 +162,19 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [5,5,2];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الوافر العادي
 
-  static bool wafer_m (List<String> shatr ){
+  static List wafer_m (List<String> shatr ){
     if (shatr[1].length > 14){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -160,17 +188,22 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [5,5];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0]],[[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الوافر المجزوء
 
 //******************** نهاية الوافر *******************
 
   //******************** بداية الخفيف  *******************
-  static bool khafef_n (List<String> shatr ){
+  static List khafef_n (List<String> shatr ){
     if (shatr[1].length > 21){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -185,14 +218,19 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [0,6,0];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الخفيف العادي
 
-  static bool khafef_m (List<String> shatr ){
+  static List khafef_m (List<String> shatr ){
     if (shatr[1].length > 14){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -206,18 +244,23 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [0,6];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0]],[[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الخفيف المجزوء
 
 //******************** نهاية الخفيف *******************
 
 
   //******************** بداية الرمل  *******************
-  static bool ramal_n (List<String> shatr ){
+  static List ramal_n (List<String> shatr ){
     if (shatr[1].length > 21){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -232,14 +275,19 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [0,0,0];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الخفيف العادي
 
-  static bool ramal_m (List<String> shatr ){
+  static List ramal_m (List<String> shatr ){
     if (shatr[1].length > 14){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -253,9 +301,14 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [0,0];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0]],[[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الرمل المجزوء
 
 //******************** نهاية الرمل *******************
@@ -267,9 +320,9 @@ class allbahrs{
 
 
   //******************** بداية المتقارب  *******************
-  static bool motokareb_n (List<String> shatr ){
+  static List motokareb_n (List<String> shatr ){
     if (shatr[1].length > 20){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -286,9 +339,14 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [2,2,2,2];
-    List<List<int>> _result = [[0,0,0,0],[0,0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0],[0]],[[0],[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر المتقارب العادي
 
 //******************** نهاية المتقارب *******************
@@ -296,9 +354,9 @@ class allbahrs{
 
 
   //******************** بداية المنسرح  *******************
-  static bool monsareh_n (List<String> shatr ){
+  static List monsareh_n (List<String> shatr ){
     if (shatr[1].length > 21){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -313,18 +371,23 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [6,4,6];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر المنسرح العادي
 
 //******************** نهاية المنسرح *******************
 
 
   //******************** بداية السريع  *******************
-  static bool sareeh_n (List<String> shatr ){
+  static List sareeh_n (List<String> shatr ){
     if (shatr[1].length > 19){
-      return false;
+      return [-1];
     }
 
     List<List<List<bool>>> _bool = [
@@ -340,9 +403,14 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [6,6,1];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر المنسرح العادي
 
 //******************** نهاية السريع *******************
@@ -350,9 +418,9 @@ class allbahrs{
 
 
   //******************** بداية المقتضب  *******************
-  static bool moktateb_n (List<String> shatr ){
+  static List moktateb_n (List<String> shatr ){
     if (shatr[1].length > 12){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -365,17 +433,22 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [1,5];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0]],[[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر لمجتث العادي
 
 //******************** نهاية المقتضب *******************
 
 //******************** بداية المجتث  *******************
-  static bool mojtath_n (List<String> shatr ){
+  static List mojtath_n (List<String> shatr ){
     if (shatr[1].length > 14){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -388,17 +461,22 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [6,0];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر لمجتث العادي
 
 //******************** نهاية المجتث *******************
 
 //******************** بداية المحدث  *******************
-  static bool mohdath_n (List<String> shatr ){
+  static List mohdath_n (List<String> shatr ){
     if (shatr[1].length > 20){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -416,17 +494,22 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [1,1,1,1];
-    List<List<int>> _result = [[0,0,0,0],[0,0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0],[0]],[[0],[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر المحدث العادي
 
 //******************** نهاية المحدث *******************
 
 //******************** بداية المضارع  *******************
-  static bool modareh_n (List<String> shatr ){
+  static List modareh_n (List<String> shatr ){
     if (shatr[1].length > 13){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -439,18 +522,23 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [3,0];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0]],[[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر المضارع العادي
 
 //******************** نهاية المضارع *******************
 
 
   //******************** بداية الرجز  *******************
-  static bool rajaz_n (List<String> shatr ){
+  static List rajaz_n (List<String> shatr ){
     if (shatr[1].length > 21){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -465,9 +553,14 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [6,6,6];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر الرجز العادي
 
 //******************** نهاية الرجز *******************
@@ -475,9 +568,9 @@ class allbahrs{
 
 
   //******************** بداية المديد  *******************
-  static bool maded_n (List<String> shatr ){
+  static List maded_n (List<String> shatr ){
     if (shatr[1].length > 19){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [
@@ -492,18 +585,23 @@ class allbahrs{
       ],
     ];
     List<int> _taf = [0,1,0];
-    List<List<int>> _result = [[0,0,0],[0,0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0],[0]],[[0],[0],[0]]];
 
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
   }//بحر المديد العادي
 
 //******************** نهاية المديد *******************
 
   //******************** بداية الهزج *******************
 
-  static bool hazj_n (List<String> shatr ){
+  static List hazj_n (List<String> shatr ){
     if (shatr[1].length > 14){
-      return false;
+      return [-1];
     }
     List<List<List<bool>>> _bool = [
       [[true, false, false, true, false],//first
@@ -514,8 +612,14 @@ class allbahrs{
         ],
     ];
     List<int> _taf = [3,3];
-    List<List<int>> _result = [[0,0],[0,0]];
-    return findit.findbahrso(_bool, _taf, _result, shatr);
+    List<List<List<int>>> _result = [[[0],[0]],[[0],[0]]];
+    print('res');
+    List res = findit.findbahrso(_bool, _taf, _result, shatr);
+    print(res);
+    if(res[0]!= -1) {
+      return res;
+    }
+    return [-1];
 
   }//بحر الهزج
 

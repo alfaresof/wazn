@@ -1,191 +1,154 @@
 import 'dart:ffi';
 
-import 'package:wazn/back_end/bahrs/toremove/baseet.dart';
-import 'package:wazn/back_end/bahrs/toremove/hazj.dart';
-import 'package:wazn/back_end/bahrs/toremove/mohdath.dart';
 import 'package:wazn/back_end/taffeelat/MaTaffelat.dart';
 class search{
    String searchn(String bb){
 
        String shatr = bb;
        shatr = methods.replacea(shatr);
+       shatr = shatr.replaceAll('َّ', 'َّ');
+       shatr = shatr.replaceAll('ُّ','ُّ');
+       shatr = shatr.replaceAll('ّْ', 'ّْ');
        //shatr = shatr.replaceAll(' ', '');
         print(shatr);
        
        String results = "" ;
+       String results_2 = "" ;
+       String result_A = "";
+        //shatr += "     ";
+        shatr = "   " +shatr+"     ";
+        print(shatr);
+       for (int i = 3; i < shatr.length; i++) {
 
-       for (int i = 0; i < shatr.length; i++) {
-         int a = shatr.codeUnitAt(i);
-         print(i);
-if(String.fromCharCode(a) != ' ') {
-  //we will divde it to two , with harakah , without
-  if (i + 2 < shatr.length) {
-    int b = shatr.codeUnitAt(i + 1);
-    int c = shatr.codeUnitAt(i + 2);
-    print(String.fromCharCode(a));
-    print(String.fromCharCode(b));
+         if(String.fromCharCode(shatr.codeUnitAt(i))!=' '){
 
-    if (methods._IsHarf(a) && methods._IsHarf(b)) {
-      if(String.fromCharCode(a)=='آ'){
-        results += '10';
-      }else  if (methods._IsItMad(b)) {
-        results += '1';
-      } else if (methods._IsItMad(a) && methods._IsItAL(a, b) == false &&
-          methods._IsHarf(b) == true ) {
 
-        if(String.fromCharCode(b) != ' '){
-        print('mad');
-        results += '0';
-        }else if(String.fromCharCode(b)==' '&& String.fromCharCode(c)== 'ا'&&i+3 < shatr.length){
-          if(String.fromCharCode(shatr.codeUnitAt(i+3))=='ل'){
-            i++;
-            
-          }
-        }else if(i +3 < shatr.length && methods._IsItAL(c, shatr.codeUnitAt(i+3))==false){
-          results += '0';
-        }else{
-          if(methods.typeof(i-1)=='01' || methods.typeof(i-2)=='01'){
+           int a = shatr.codeUnitAt(i);
+           int b = shatr.codeUnitAt(i+1);
+           int c = shatr.codeUnitAt(i+2);
+           int d = shatr.codeUnitAt(i+3);
+           int e = shatr.codeUnitAt(i+4);
 
-          }else{
-          results += '0';
-        }}
-      } else if (i + 1 == shatr.length - 1 && methods._IsItAL(a, b) == true &&
-          methods._IsHarf(b) == true) {
-        print('mad again');
-        results += '0';
-      } else if (methods._IsItAL(a, b) && methods._IsHarf(c) == true) {
-        print('al');
-        if (methods._IsItSunny(a, b, shatr.codeUnitAt(i + 3))) {
-          results += "01";
-          if (methods.typeof(shatr.codeUnitAt(i + 4))=='1') {
-            i++;
-          }
-          i += 3;
-        } else {
-          print(methods._IsItMad(shatr.codeUnitAt(i - 1)));
+           print('a = ${String.fromCharCode(a)}\nb = ${String.fromCharCode(b)}\n c = ${String.fromCharCode(c)}\n d = ${String.fromCharCode(d)}\n ${results_2}\n${String.fromCharCode(e)}');
+           if(methods._IsHarf(b)==true&&methods._IsHarf(a)){// اذا لم يكن الحرف متحركا
 
-          if (methods._IsItMad(shatr.codeUnitAt(i - 1)) == false||methods._IsItMad(shatr.codeUnitAt(i - 2)) == false) {
-            results += '0';
-          }
-          i += 1;
-        }
-      } else {
-        if (methods._IsItMad(b) && methods.typeof(c) == '-1') {
-          print('before mad');
-          results += '1';
-        } else {
-          print('sokon');
-          results += '0';
-        }
-      }
-    } else {
-      results += methods.typeof(b);
-      print(methods.typeof(b) == '10' && String.fromCharCode(c) == 'ا');
-      if (methods.typeof(b) == '10' && String.fromCharCode(c) == 'ا') {
-        i += 1;
-      }
-      if (methods.typeof(b) == '1' && String.fromCharCode(a) == 'ه'
-          ) {
-        if(i!=0 && i != 1){
-        if((methods.typeof(shatr.codeUnitAt(i - 1)) == '1'||methods.typeof(shatr.codeUnitAt(i - 1)) == '1')&& String.fromCharCode(c)==' ')
-        print("i am heeeeeeeeeeeeeeeeeeeeeere");
-        results += '0';}
-      }
-      if (methods.typeof(b) == '01' && methods.typeof(c) == '10') {
-        results += '0';
-        i += 1;
-      }
-      if (methods.typeof(b) == '01') {
-        i += 2;
-        if (methods._IsItMad(c)) {
-          i += 1;
-        }
-      }
+             if(methods._isAA(a)){// اذا كان الف ممدودة
+               results_2 += '10';
 
-      print(methods.typeof(b));
+               result_A += String.fromCharCode(a);
+             }else if (String.fromCharCode(a)=='ا'){ // اذا كان الف
+               if(methods._IsItAL(a, b)){// اذا كان ال
+                 print('al');
+                if(methods.typeof(c)=='1'){// اذا لم تكن ال
+                  results_2 += '0';
+                  result_A += String.fromCharCode(a) + 'ْ';
+                }else if(methods.typeof(d)=='01'){// اذا كان ال شمسية
+                  result_A += String.fromCharCode(c)+'ْ'+String.fromCharCode(c);
+                  print('sunny');
+                  results_2 += '01';
+                  if(methods.typeof(e)=='1'){// اذا رافق الشدّة حركة
+                    result_A += String.fromCharCode(e);
+                    i+=1;
+                  }else{
+                    result_A += 'َ';
+                  }
+                  i+=3;
+                }else if(methods.typeof(d)=='1'){// اذا كان ال قمرية
+                  result_A += String.fromCharCode(b)+'ْ'+String.fromCharCode(c)+String.fromCharCode(d);
+                  results_2 += '01';
+                  i+=3;
+                }
+               }else if(String.fromCharCode(shatr.codeUnitAt(i-1))=='و'&& String.fromCharCode(b)==' ') {//اذا كانت الف واو الجماعة
+                 i++;
+               }else if(methods._isConnectAA(shatr.codeUnitAt(i-1), shatr.codeUnitAt(i-2))){// اذا كانت الف موصولة
+                if((String.fromCharCode(shatr.codeUnitAt(i-1))== 'ف'||String.fromCharCode(shatr.codeUnitAt(i-1))== 'و') ){
 
-      print(methods.typeof(b) == '01' && methods.typeof(c) == '1');
+                }else{
+                  result_A += String.fromCharCode(b)+'ْ';
+                 i++;
+                }
+               }else if(methods._IsItAL(c, d)){// اذا كانت ال بعد المد
 
-      if (i + 1 != shatr.length - 1) {
-        i += 1;
-      }
-    }
-  } else {
-    if (String.fromCharCode(a) == 'ا' &&(methods.typeof(shatr.codeUnitAt(i - 1)) == '10'||methods.typeof(shatr.codeUnitAt(i - 2)) == '10')
-        ) {
-
-    } else if (methods._IsItMad(a) && i == shatr.length - 1 &&(methods.typeof(shatr.codeUnitAt(i - 1)) != '10'||methods.typeof(shatr.codeUnitAt(i - 2)) != '10')
-        ) {
-      results += '0';
-    } else if (methods.typeof(a) == 1 && i == shatr.length - 1) {
-      results += '0';
-    } else if (methods._IsHarf(a) && i == shatr.length - 1) {
-      results += '0';
-    } else {
-      if (methods.typeof(a) != '-1') {
-        results += methods.typeof(a);
-      }
-    }
-  }
-
-  print(results);
-}
-        /*
-         if (methods._IsItHarakah(a)) {
-           results +=  '1';
-         } else {
-           if (methods._IsItSokon(a)) {
-             results += '0';
-           } else {
-             if (methods._IsItShadah(a)) {
-               results += "01";
-               i++;
-             } else {
-               if (methods._IsItMad(a)) {
-                 if ((methods._IsItHarakah(shatr.codeUnitAt(i + 1)) == false && methods._IsItSokon(shatr.codeUnitAt(i+1))==false) && (methods._IsItAL(a, shatr.codeUnitAt(i + 1)) == false)) {
-                   results += '0';
-                 } else {
-                   if ((i + 3) <= shatr.length) {
-                     if (methods._IsItAL(a, shatr.codeUnitAt(i + 1))) {
-                       if (methods._IsItSunny(a, shatr.codeUnitAt(i + 1), shatr.codeUnitAt(i + 3))) {
-                         results += "01";
-                         i += 2;
-                         if (methods._IsItHarakah(shatr.codeUnitAt(i + 4))) {
-                           i++;
-                         }
-                       } else {
-                         if (methods._IsItMoony(a, shatr.codeUnitAt(i + 1), shatr.codeUnitAt(i + 2))) {
-                           if (methods._IsItMad(shatr.codeUnitAt(i - 2))) {
-                           } else {
-                             results += '0';
-                           }
-                         }
-                       }
-                     }
-                   }
-                 }
-               } else {
-                 if (methods._IsItTanween(a)) {
-                   if (methods._IsItShadah(shatr.codeUnitAt(i - 1))) {
-                     print("i am here");
-                     results += '0';
-                   } else {
-                     print("all is good");
-                     results += "10";
-                   }
-                 } else {
-                 }
+               }else{// اذا كانت الألف مداً
+                 result_A += String.fromCharCode(a)+'ْ';
+                 results_2 += '0';
                }
-             }
-           }
-         }
-       */
-       }
-       if (methods._IsItHarakah(shatr.codeUnitAt(shatr.length - 1))) {
-         results += '0';
-       }
+             }else if(methods._IsItMad(a)&&String.fromCharCode(a)!='ا'){//اذا كان مد غير الألف
 
-       return results;
+               if(methods._IsItAL(c, d)){// اذا كانت ال بعد المد
+
+               }else if(methods._IsItMad(b)){// اذا كان حرفي مد متتالين
+                 result_A += String.fromCharCode(a)+'َ';
+                 results_2 += '1';
+               }else if(methods._IsHarf(b)){// اذا كان حرف المد بدون حرف مد متتالي
+                 result_A += String.fromCharCode(a)+'ْ';
+                 results_2 += '0';
+               }
+             }else if(String.fromCharCode(b)=='ا'&&methods.typeof(c)=='10'){
+
+
+             }else if(methods._IsItMad(b)&&methods.typeof(c)!='1'){// اعتبار اي حرف لا حركة عليه وبعده مد متحرك
+              results_2 += '1';
+              result_A += String.fromCharCode(a)+ 'َ';
+             }else {// اعتبار اي حرف ساكن مالم يكن من الحالات المذكورة اعلاه
+
+               results_2 += '0';
+               result_A += String.fromCharCode(a) +'ْ';
+             }
+
+
+           }else{// اذا كان الحرف مشكل
+     if(methods.typeof(shatr.codeUnitAt(i-1))==1&&String.fromCharCode(a)=='ه'&& String.fromCharCode(c)==' '){//اذا كانت الهاء التي بعدها حركة وقبلها حركة
+      results_2 += '10';
+      result_A += String.fromCharCode(a)+String.fromCharCode(b); // نحتاج اضافة مد هنا , سيضاف لاحقاً تباً له
+     }else if(methods.typeof(b)=='10'){// اذا كان تنوين
+       results_2 += methods.typeof(b);
+       result_A += String.fromCharCode(a)+String.fromCharCode(b);
+       if(String.fromCharCode(b)=='ا' &&String.fromCharCode(c)==' '){// اذا كان بعد التنوين الف التنوين
+         i++;
+       }
+       i+=2;
+     }else if(methods.typeof(b)=='01'){// اذا كان شدّة
+       results_2 += methods.typeof(b);
+       result_A += String.fromCharCode(a)+'ْ'+String.fromCharCode(a);
+       if(methods.typeof(c)=='10'){// اذا كان تنوين مع الشدة
+         results_2 += '0';
+         result_A += String.fromCharCode(c);
+         if(String.fromCharCode(d)=='ا' &&String.fromCharCode(shatr.codeUnitAt(i+5))==' '){// اذا كان الف بعد الشدّة i+3 و بعدها فراغ , نسيت ليه حطيت هالشرط بس كان لإصلاح مشكلة اكيد يبيلي ارجعله
+           i++;
+         }
+         i++;
+       }else if(methods.typeof(c)=='1'){// اذا كان بعد الشدّة حركة
+         result_A += String.fromCharCode(c);
+         i++;
+       }else{
+         result_A += 'َ';
+       }
+       i++;
+     }else{// اذا كان مشكّل + تفادى كل الشروط السابقة ..
+     results_2 += methods.typeof(b);
+     result_A += String.fromCharCode(a)+String.fromCharCode(b);
+     i++;
+
+     }
+           }
+
+
+
+         }else{
+         }
+
+
+
+       }
+       print("************************************\n ${results_2}\n***************************************");
+       if(String.fromCharCode(results_2.codeUnitAt(results_2.length-1))=='1'){// اذا كان اخر حرف متحرك نضيف فقط 0 بالأخير عشان الوزن يستقيم
+
+         results_2+='0';
+       }
+       print("this is result AAA \n $result_A");
+       return results_2;
+
      }
 
 
@@ -214,6 +177,21 @@ class methods
       a = a.replaceAll(aa[i], bb[i]);
     }
     return a;
+  }
+  static bool _isAA(int a){
+    if(String.fromCharCode(a)=='آ'){
+      return true;
+    }
+    return false;
+  }
+  static bool _isConnectAA(int a,int b){
+    if((String.fromCharCode(a)== 'ف'||String.fromCharCode(a)== 'و') && String.fromCharCode(b)== ' '){
+      print("connnectttttttt");
+      return true;
+    }else if (String.fromCharCode(a)== ' '){
+      return true;
+    }else
+    return false;
   }
 
   static bool _IsHarf(int a){

@@ -1,28 +1,19 @@
-import 'package:wazn/back_end/bahrs/toremove/baseet.dart';
-import 'package:wazn/back_end/bahrs/toremove/hazj.dart';
-import 'package:wazn/back_end/bahrs/toremove/kamel.dart';
-import 'package:wazn/back_end/bahrs/toremove/khafef.dart';
 
-import 'package:wazn/back_end/bahrs/toremove/mohdath.dart';
-import 'package:wazn/back_end/bahrs/toremove/mojtath.dart';
-
-import 'package:wazn/back_end/bahrs/toremove/monsareh.dart';
-
-import 'package:wazn/back_end/bahrs/toremove/rajaz.dart';
 
 import 'package:wazn/back_end/search.dart';
 import 'package:wazn/back_end/bahrs/all_bahrs.dart';
+import 'package:wazn/back_end/taffeelat/MaTaffelat.dart';
 class maino{
 
 
-     List<String> mainos(String A, String B){
+     List<List> mainos(String A, String B){
        print("object");
     String first = search().searchn(A);
     String second = search().searchn(B);
     List<String> res = [first,second];
     print(first);
     print(second);
-    List<bool> f = [
+    List<List> f = [
 
       allbahrs.basset_n(res),
       allbahrs.basset_m(res),
@@ -71,16 +62,58 @@ class maino{
       "مجزوء الوافر",
 
     ];
-    List<String> resulte = [];
-    for (int i =0 ; i<bahrso.length; i++){
-      if(f[i]==true){
+
+       List<List<String>> WTaffelat = [
+         ["فاعلاتن", "فعلاتن", "فاعلا", "فعلا", "فاعلات", "فعلاتْ", "فاعلاتن", "فعلاتن", "فاعل", "فاعلْتِنْ"],//faaelaton 0
+         ["فاعلن","فعلن","فاعل"],//faelon 1
+         ["فعولن", "فعولُ", "فعو", "فع", "فعولْ"],//faoolon 2
+         ["مفاعيلن","مفاعي","مفاعيل","مفاعيلُ","مفاعلن"],//mafaeelon 3
+         ["مفعولات","فاعلان"],//mafolato 4
+         ["مفاعلتن","مفاعلْتنْ","مفاعلْ"],//mofaalaton 5
+         ["مستفعلن","متفعلن","مستعلن","متعلن","مستفعلْ"],//mostafelon 6
+         ["متفاعلن", "متْفاعلُ", "متفاعلْ", "متْفاعلنْ", "متفا", "متْفا", "متفاعلاتن", "متْفاعلاتن", "متفاعلان", "متْفاعلان"]//motafaelon 7
+       ];
+    List<List> resulte = [];
+    print(f);
+
+    for (int i =0 ; i<f.length; i++){
+      if(f[i][0] != -1){
         print(bahrso[i]);
         print(f[i]);
-        resulte.add(bahrso[i]);
+        print(f[i][0][0][3]);
+        print('before it');
+        f[i][0][0][3] = i;
+        f[i][0][1][3] = i;
+        print(f[i][1][0][3]);
+        print(bahrso[f[i][0][0][3]]);
+        print(WTaffelat[f[i][0][1][1]][f[i][0][1][2]]);
+        print('after it');
+        print(f[i]);
+        List taf = [] ;
+        print('some');
+        print(f[i][0].length);
 
+        for(int j =0; j < f[i][0].length ; j++){
+          print(WTaffelat[f[i][0][j][1]][f[i][0][j][2]]);
+          print(WTaffelat[f[i][1][j][1]][f[i][1][j][2]]);
+          taf.add(WTaffelat[f[i][0][j][1]][f[i][0][j][2]]);
+
+        }
+        for(int j =0; j < f[i][0].length ; j++){
+          print(WTaffelat[f[i][1][j][1]][f[i][1][j][2]]);
+          taf.add(WTaffelat[f[i][1][j][1]][f[i][1][j][2]]);
+
+        }
+
+        print(taf);
+        print(bahrso[f[i][0][0][3]]);
+        taf.add(bahrso[f[i][0][0][3]]);
+        resulte.add(taf);
+        print(resulte);
       }
 
     }
+
     return resulte;
 
 
